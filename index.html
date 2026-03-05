@@ -167,7 +167,7 @@ fetch("http://localhost:3000/admin/kyc")
 }
 
 function approveKYC(kycId, userId){
-fetch(`http://localhost:3000/admin/kyc/approve/${kycId}`,{
+fetch(`https://waicoinbn.onrender.com/admin/kyc/approve/${kycId}`,{
     method:"POST"
 })
 .then(()=>{
@@ -177,7 +177,7 @@ fetch(`http://localhost:3000/admin/kyc/approve/${kycId}`,{
 }
 
 function rejectKYC(kycId, userId){
-fetch(`http://localhost:3000/admin/kyc/reject/${kycId}`,{
+fetch(`https://waicoinbn.onrender.com/admin/kyc/reject/${kycId}`,{
     method:"POST"
 })
 .then(()=>{
@@ -189,7 +189,7 @@ fetch(`http://localhost:3000/admin/kyc/reject/${kycId}`,{
 loadKYC();
 // LOAD CURRENT PRICE
 function loadPrice(){
-    fetch("http://localhost:3000/coin-price")
+    fetch("https://waicoinbn.onrender.com/coin-price")
     .then(res=>res.json())
     .then(data=>{
         document.getElementById("currentPrice").innerText =
@@ -201,7 +201,7 @@ function loadPrice(){
 function setPrice(){
     const price = document.getElementById("priceInput").value;
 
-    fetch("http://localhost:3000/admin/set-price",{
+    fetch("https://waicoinbn.onrender.com/admin/set-price",{
         method:"POST",
         headers:{ "Content-Type":"application/json" },
         body: JSON.stringify({ price })
@@ -214,7 +214,7 @@ function setPrice(){
 
 loadPrice();
 function loadStats(){
-    fetch("http://localhost:3000/admin/stats")
+    fetch("https://waicoinbn.onrender.com/admin/stats")
     .then(res=>res.json())
     .then(data=>{
         document.getElementById("totalUsers").innerText =
@@ -236,7 +236,7 @@ loadStats();
 let allUsers = [];
 
 function loadUsers() {
-fetch("http://localhost:3000/admin/users")
+fetch("https://waicoinbn.onrender.com/admin/users")
 .then(res => res.json())
 .then(data=>{
 
@@ -296,7 +296,7 @@ function filterUsers(){
 }
 // ================= LOAD SINGLE USER =================
 function loadUser(id){
-fetch(`http://localhost:3000/admin/user/${id}`)
+fetch(`https://waicoinbn.onrender.com/admin/user/${id}`)
 .then(res=>res.json())
 .then(u=>{
 
@@ -381,7 +381,7 @@ function banUser(id){
 
     if(!reason) return;
 
-    fetch(`http://localhost:3000/admin/ban/${id}`,{
+    fetch(`https://waicoinbn.onrender.com/admin/ban/${id}`,{
         method:"POST",
         headers:{ "Content-Type":"application/json" },
         body: JSON.stringify({ reason })
@@ -394,7 +394,7 @@ function banUser(id){
 
 function unbanUser(id){
 
-    fetch(`http://localhost:3000/admin/unban/${id}`,{
+    fetch(`https://waicoinbn.onrender.com/admin/unban/${id}`,{
         method:"POST"
     })
     .then(()=> {
@@ -408,7 +408,7 @@ function deleteUser(id){
 
     if(!confirmDelete) return;
 
-    fetch(`http://localhost:3000/admin/user/${id}`,{
+    fetch(`https://waicoinbn.onrender.com/admin/user/${id}`,{
         method:"DELETE"
     })
     .then(res=>res.json())
@@ -428,7 +428,7 @@ function closeModal(){
     document.getElementById("imageModal").style.display = "none";
 }
 function verifyKYC(id){
-fetch(`http://localhost:3000/admin/verify-kyc/${id}`,{
+fetch(`https://waicoinbn.onrender.com/admin/verify-kyc/${id}`,{
     method:"POST"
 })
 .then(()=> loadUser(id));
@@ -437,7 +437,7 @@ fetch(`http://localhost:3000/admin/verify-kyc/${id}`,{
 function addCoins(id){
 const coins = document.getElementById("addCoinInput").value;
 
-fetch(`http://localhost:3000/admin/add-coins/${id}`,{
+fetch(`https://waicoinbn.onrender.com/admin/add-coins/${id}`,{
     method:"POST",
     headers:{ "Content-Type":"application/json" },
     body: JSON.stringify({ coins })
@@ -449,4 +449,5 @@ loadUsers();
 
 </script>
 </body>
+
 </html>
