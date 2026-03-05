@@ -113,7 +113,7 @@ async function loadReports(){
 
     try {
 
-        const res = await fetch("http://localhost:3000/admin/reports",{
+        const res = await fetch("https://waicoinbn.onrender.com/admin/reports",{
             headers:{
                 Authorization:"Bearer "+token
             }
@@ -208,7 +208,7 @@ async function markReviewed(id, btn){
 
     btn.disabled = true;
 
-    await fetch("http://localhost:3000/admin/review/"+id,{
+    await fetch("https://waicoinbn.onrender.com/admin/review/"+id,{
         method:"PUT",
         headers:{ Authorization:"Bearer "+token }
     });
@@ -220,7 +220,7 @@ async function openChat(user1, user2, btn){
 
     btn.disabled = true;
 
-    const res = await fetch("http://localhost:3000/admin/chat/unblock",{
+    const res = await fetch("https://waicoinbn.onrender.com/admin/chat/unblock",{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -243,7 +243,7 @@ async function banUser(id, btn){
 
     btn.disabled = true;
 
-    await fetch("http://localhost:3000/admin/ban/"+id,{
+    await fetch("https://waicoinbn.onrender.com/admin/ban/"+id,{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -259,7 +259,7 @@ async function unbanUser(id, btn){
 
     btn.disabled = true;
 
-    await fetch("http://localhost:3000/admin/unban/"+id,{
+    await fetch("https://waicoinbn.onrender.com/admin/unban/"+id,{
         method:"POST",
         headers:{ Authorization:"Bearer "+token }
     });
@@ -272,4 +272,5 @@ loadReports();
 </script>
 
 </body>
+
 </html>
