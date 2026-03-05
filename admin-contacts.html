@@ -31,7 +31,7 @@ body{
 <script>
 async function loadMessages(){
 
-    const res = await fetch("http://localhost:3000/admin/contacts");
+    const res = await fetch("https://waicoinbn.onrender.com/admin/contacts");
     const data = await res.json();
 
     let html = "";
@@ -67,7 +67,7 @@ async function deleteMessage(id){
     if(!confirmDelete) return;
 
     const res = await fetch(
-        `http://localhost:3000/admin/contact/${id}`,
+        `https://waicoinbn.onrender.com/admin/contact/${id}`,
         { method:"DELETE" }
     );
 
@@ -82,4 +82,5 @@ loadMessages();
 </script>
 
 </body>
+
 </html>
