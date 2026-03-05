@@ -85,7 +85,7 @@ button {
 <script>
 
 function loadKYC(){
-fetch("http://localhost:3000/admin/kyc")
+fetch("https://waicoinbn.onrender.com/admin/kyc")
 .then(res=>res.json())
 .then(data=>{
 
@@ -137,7 +137,7 @@ fetch("http://localhost:3000/admin/kyc")
 }
 
 function approveKYC(id){
-fetch(`http://localhost:3000/admin/kyc/approve/${id}`,{
+fetch(`https://waicoinbn.onrender.com/admin/kyc/approve/${id}`,{
     method:"POST"
 })
 .then(()=>{
@@ -147,7 +147,7 @@ fetch(`http://localhost:3000/admin/kyc/approve/${id}`,{
 }
 
 function rejectKYC(id){
-fetch(`http://localhost:3000/admin/kyc/reject/${id}`,{
+fetch(`https://waicoinbn.onrender.com/admin/kyc/reject/${id}`,{
     method:"POST"
 })
 .then(()=>{
@@ -160,4 +160,5 @@ loadKYC();
 
 </script>
 </body>
+
 </html>
