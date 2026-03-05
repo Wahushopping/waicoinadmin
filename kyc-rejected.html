@@ -37,7 +37,7 @@ button{
 
 function loadRejectedKYC(){
 
-fetch("http://localhost:3000/admin/kyc?status=rejected")
+fetch("https://waicoinbn.onrender.com/admin/kyc?status=rejected")
 .then(res=>res.json())
 .then(data=>{
 
@@ -89,7 +89,7 @@ function approveKYC(id){
     btn.disabled = true;
     btn.innerText = "Processing...";
 
-    fetch(`http://localhost:3000/admin/kyc/approve/${id}`,{
+    fetch(`https://waicoinbn.onrender.com/admin/kyc/approve/${id}`,{
         method:"POST"
     })
     .then(res=>res.json())
@@ -114,4 +114,5 @@ loadRejectedKYC();
 </script>
 
 </body>
+
 </html>
